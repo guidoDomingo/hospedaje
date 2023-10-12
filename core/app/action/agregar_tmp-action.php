@@ -1,5 +1,4 @@
-        
-<?php
+        <?php
 
 $session_id= session_id(); 
 
@@ -43,41 +42,45 @@ if (isset($_GET['id']))//codigo elimina un elemento del array
 		
 			// si hay usuarios
 			?>
-			<?php
+        <?php
 			$sumador_total=0;
 			foreach($tmps as $tmp): ?>
-				<tr>
-                <td></td>
-                <td><?php if($tmp->id_producto!=null){echo $tmp->getProduct()->nombre;}else{ echo "<center>----</center>"; }  ?></td>
-				<td><?php echo $tmp->cantidad_tmp; ?></td>
-				
-                
-                <td>$  <?php echo number_format($tmp->precio_tmp,2,'.',','); ?></td>
-                <?php $sumar_t=$tmp->cantidad_tmp*$tmp->precio_tmp; ?>
-                <td>$  <?php echo number_format($sumar_t,2,'.',','); ?></td>
-  				<td ><span class="pull-right"><a href="#" onclick="eliminar('<?php echo $tmp->id_tmp ?>')"><i class="glyphicon glyphicon-trash"></i> </a></span></td>
-         
-          
-           </tr>
-             
-          
-				
-                
-				<?php
+        <tr>
+            <td></td>
+            <td><?php if($tmp->id_producto!=null){echo $tmp->getProduct()->nombre;}else{ echo "<center>----</center>"; }  ?>
+            </td>
+            <td><?php echo $tmp->cantidad_tmp; ?></td>
+
+
+            <td>$ <?php echo number_format($tmp->precio_tmp,2,'.',','); ?></td>
+            <?php $sumar_t=$tmp->cantidad_tmp*$tmp->precio_tmp; ?>
+            <td>$ <?php echo number_format($sumar_t,2,'.',','); ?></td>
+            <td><span class="pull-right"><a href="#" onclick="eliminar('<?php echo $tmp->id_tmp ?>')"><i
+                            class="glyphicon glyphicon-trash"></i> </a></span></td>
+
+
+        </tr>
+
+
+
+
+        <?php
 				$sumador_total+=$sumar_t;
 			endforeach ?>
-            <tr style="background-color: #f3f3f3;">
-                <td colspan=4><span class="pull-right">SUBTOTAL </span></td>
-                <td><span class="pull-left"><?php echo '$  '.number_format(($sumador_total/1.18),2,'.',',');?></span></td>
-                <td></td>
-            </tr>
-            <tr style="background-color: #f3f3f3;">
-                <td colspan=4><span class="pull-right">IGV </span></td>
-                <td><span class="pull-left"><?php echo '$  '.number_format($sumador_total-($sumador_total/1.18),2,'.',',');?></span></td>
-                <td></td>
-            </tr>
-            <tr style="background-color: #e4e4e4;">
-                <td colspan=4><span class="pull-right">TOTAL </span></td>
-                <td><span class="pull-left"><?php echo '$  '.number_format($sumador_total,2,'.',',');?></span></td>
-                <td></td>
-            </tr>
+        <tr style="background-color: #f3f3f3;">
+            <td colspan=4><span class="pull-right">IVA </span></td>
+            <td><span class="pull-left"><?php echo '$  '.number_format(($sumador_total/11),2,'.',',');?></span></td>
+            <td></td>
+        </tr>
+        <tr style="background-color: #f3f3f3;">
+            <td colspan=4><span class="pull-right">SUBTOTAL </span></td>
+            <td><span
+                    class="pull-left"><?php echo '$  '.number_format($sumador_total-($sumador_total/11),2,'.',',');?></span>
+            </td>
+            <td></td>
+        </tr>
+        <tr style="background-color: #e4e4e4;">
+            <td colspan=4><span class="pull-right">TOTAL </span></td>
+            <td><span class="pull-left"><?php echo '$  '.number_format($sumador_total,2,'.',',');?></span></td>
+            <td></td>
+        </tr>
