@@ -1,10 +1,17 @@
 
 <?php
 
+// $dbhost = 'localhost';
+// $dbuser = 'root';
+// $dbpass = '';
+// $dbname = 'hospedaje';
+// $tables = '*';
+
+
 $dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-$dbname = 'hotel_web_3.0';
+$dbuser = 'unclzepr_guido';
+$dbpass = 'ruizbenitezguido11';
+$dbname = 'unclzepr_hospedaje';
 $tables = '*';
   
 //Call the core function
