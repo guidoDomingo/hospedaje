@@ -2,7 +2,8 @@
 <link rel="stylesheet" href="assets/js/vendor/footable/css/footable.core.min.css">
 
 <?php 
-     date_default_timezone_set('America/Lima');
+     date_default_timezone_set('America/Asuncion');
+
      $hoy = date("Y-m-d");
 
              $u=null;

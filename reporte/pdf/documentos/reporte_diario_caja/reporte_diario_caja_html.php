@@ -61,7 +61,8 @@ tr:hover td { background: #d0dafd; color: #339; }
 
 
 <?php 
-     date_default_timezone_set('America/Lima');
+     date_default_timezone_set('America/Asuncion');
+
      $hoy = date("Y-m-d");
      $hora = date("H:i:s");
                     
