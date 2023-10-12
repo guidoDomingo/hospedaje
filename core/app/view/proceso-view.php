@@ -99,12 +99,14 @@
                             <h4 class="text-primary" style="margin-top: 0px !important;">Tipo:</h4>
                           </td>
                           <td>
-                            <div class="sparkbar" data-color="#00a65a" data-height="20"><?php echo $habitacion->getCategoria()->nombre; ?></div>
+                            <div class="sparkbar" data-color="#00a65a" data-height="20">
+                              <?php echo $habitacion->getCategoria()->nombre; ?></div>
                           </td>
                         </tr>
                         <tr style="padding: 0px;">
                           <td>
-                            <h4 class="text-primary" style="margin-top: 0px !important;">Detalles:</h4>
+                            <h4 class="text-primary" style="margin-top: 0px !important;">Detalles:
+                            </h4>
                           </td>
                           <td><?php echo $habitacion->descripcion; ?></td>
                           <td>
@@ -173,15 +175,16 @@
                                     <?php $tipo_documentos = TipoDocumentoData::getAll(); ?>
                                     <select name="tipo_documento" id="tipo_documento" required class="form-control">
                                       <?php foreach ($tipo_documentos as $tipo_documento) : ?>
-                                        <option value="<?php echo $tipo_documento->id; ?>"><?php echo $tipo_documento->nombre; ?></option>
+                                        <option value="<?php echo $tipo_documento->id; ?>">
+                                          <?php echo $tipo_documento->nombre; ?></option>
                                       <?php endforeach; ?>
                                     </select>
 
                                     <div class="input-group-addon">
-                                      <i class="fa  fa-arrow-circle-o-right"></i> E-mail:
+                                      <i class="fa  fa-arrow-circle-o-right"></i> Documento:
                                     </div>
 
-                                    <input type="text" class="form-control" name="documento" id="documento" required="required" placeholder="Ingrese e-mail para buscar">
+                                    <input type="text" class="form-control" name="documento" id="documento" placeholder="Ingrese el documento">
                                     <input type="hidden" id="id">
 
 
@@ -207,13 +210,13 @@
                                 <div class="form-group">
                                   <div class="input-group">
                                     <div class="input-group-addon">
-                                      RFC:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      RUC:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Ingrese RFC" name="giro" id="giro" required value="">
+                                    <input type="text" class="form-control" placeholder="Ingrese RUC" name="giro" id="giro" value="">
                                     <div class="input-group-addon">
                                       Teléfono:
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Ingrese teléfono" name="estado_civil" id="estado_civil" required value="">
+                                    <input type="text" class="form-control" placeholder="Ingrese teléfono" name="celular" id="celular" value="">
                                   </div>
                                   <!-- /.input group -->
                                 </div>
@@ -221,9 +224,10 @@
                                 <div class="form-group">
                                   <div class="input-group">
                                     <div class="input-group-addon">
-                                      Razón social:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                      Razón
+                                      social:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </div>
-                                    <input type="text" class="form-control" name="nacionalidad" id="nacionalidad" required placeholder="Ingrese razon social">
+                                    <input type="text" class="form-control" name="razon_social" id="razon_social" placeholder="Ingrese razon social">
                                   </div>
                                   <!-- /.input group -->
                                 </div>
@@ -253,7 +257,7 @@
                                   <!-- /.input group -->
                                 </div>
 
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                   <div class="input-group">
                                     <div class="input-group-addon">
                                       Factura:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -264,8 +268,8 @@
                                     </div>
                                     <input type="text" class="form-control" name="destino" id="destino" required placeholder="Ingrese folio de factura ">
                                   </div>
-                                  <!-- /.input group -->
-                                </div>
+                                 
+                                </div> -->
 
 
 
@@ -274,20 +278,22 @@
                                     <div class="input-group-addon">
                                       Nota:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     </div>
-                                    <input type="text" class="form-control" name="motivo" id="motivo" required placeholder="Ingrese Nota">
+                                    <input type="text" class="form-control" name="motivo" id="motivo" placeholder="Ingrese Nota">
                                   </div>
                                   <!-- /.input group -->
                                 </div>
 
-                                <div class="form-group">
-                                  <div class="input-group">
-                                    <div class="input-group-addon">
-                                      Toallas:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    </div>
-                                    <input type="text" placeholder="Cant. toallas" class="form-control" name="ocupacion" id="ocupacion" required value="1">
-                                  </div>
-                                  <!-- /.input group -->
-                                </div>
+                                <!-- <div class="form-group">
+                                                          <div class="input-group">
+                                                              <div class="input-group-addon">
+                                                                  Toallas:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                              </div>
+                                                              <input type="text" placeholder="Cant. toallas"
+                                                                  class="form-control" name="ocupacion" id="ocupacion"
+                                                                  required value="1">
+                                                          </div>
+                                                     
+                                                      </div> -->
 
                                 <!-- /.FIN -->
 
@@ -332,7 +338,9 @@
                                     <?php $tarifas_ha = TarifaHabitacionData::getAllHabitacion($_GET['id_habitacion']); ?>
                                     <option value="">--- Selecciona ---</option>
                                     <?php foreach ($tarifas_ha as $tarifa_ha) : ?>
-                                      <option value="<?php echo $tarifa_ha->id; ?>"><?php echo $tarifa_ha->getTarifa()->nombre; ?></option>
+                                      <option value="<?php echo $tarifa_ha->id; ?>">
+                                        <?php echo $tarifa_ha->getTarifa()->nombre; ?>
+                                      </option>
                                     <?php endforeach; ?>
 
                                   </select>
@@ -393,7 +401,8 @@
                               <div class="form-group">
                                 <div class="input-group">
                                   <div class="input-group-addon">
-                                    Fecha salida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    Fecha
+                                    salida&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                   </div>
                                   <input type="text" class="form-control" name="fecha_salida" id="fecha_salida" value="<?php echo $nuevafecha; ?>" data-inputmask='"mask": "(999) 999-9999"' data-mask>
                                   <div class="input-group-addon">
@@ -409,7 +418,8 @@
                               <div class="box-footer">
                                 <a href="index.php?view=recepcion" class="btn btn-danger">Cancelar</a>
                                 <input type="hidden" name="id_habitacion" value="<?php echo $habitacion->id; ?>">
-                                <button type="submit" class="btn btn-success pull-right">Registrar ingreso</button>
+                                <button type="submit" class="btn btn-success pull-right">Registrar
+                                  ingreso</button>
                               </div>
 
                             </td>

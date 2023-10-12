@@ -1,4 +1,3 @@
-
 <?php
 
 	require('ClassTicket.php');
@@ -167,17 +166,17 @@ $operacion = ProcesoData::getById($_GET['id']);
 		$pdf->SetFont('Arial','B',8.5);
 		
 
-		$pdf->Text(4,$get_Y + 10,'SUBTOTAL :');
-		$pdf->Text(57,$get_Y + 10,number_format(($final/1.18),2,'.',','));
-		$pdf->Text(4,$get_Y + 15,'TOTAL IVA :');
-		$pdf->Text(57,$get_Y + 15,number_format($final-($final/1.18),2,'.',','));
+		$pdf->Text(4,$get_Y + 10,'TOTAL IVA :');
+		$pdf->Text(57,$get_Y + 10,number_format(($final/11),2,'.',','));
+		$pdf->Text(4,$get_Y + 15,'SUBTOTAL :');
+		$pdf->Text(57,$get_Y + 15,number_format($final-($final/11),2,'.',','));
 		$pdf->Text(4,$get_Y + 20,'TOTAL A PAGAR :');
 		$pdf->Text(57,$get_Y + 20,number_format($final,2,'.',','));
 		
 		$pdf->Text(2, $get_Y+25, '-----------------------------------------------------------------------');
 		
 		$pdf->SetFont('Arial','BI',8.5);
-		$pdf->Text(3, $get_Y+52, 'Precios en : '.'PESOS MEXICANOS ');
+		$pdf->Text(3, $get_Y+52, 'Precios en : '.'Guaranies');
 		
 		$pdf->SetFont('Arial','B',8.5);
 		$pdf->Text(19, $get_Y+62, 'GRACIAS POR VISITARNOS');
@@ -207,4 +206,3 @@ $operacion = ProcesoData::getById($_GET['id']);
 }else{
  
 }
-?>
