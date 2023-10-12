@@ -5,8 +5,8 @@ class Database {
 	public static $db;
 	public static $con;
 	function Database(){
-		//$this->user="unclzepr_guido";$this->pass="ruizbenitezguido11";$this->host="localhost";$this->ddbb="unclzepr_hospedaje";
-		$this->user="root";$this->pass="";$this->host="localhost";$this->ddbb="hospedaje";
+		$this->user="unclzepr_guido";$this->pass="ruizbenitezguido11";$this->host="localhost";$this->ddbb="unclzepr_hospedaje";
+		//$this->user="root";$this->pass="";$this->host="localhost";$this->ddbb="hospedaje";
 	} 
 
 
