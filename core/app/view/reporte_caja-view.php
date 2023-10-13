@@ -5,6 +5,8 @@
 
      $hoy = date("Y-m-d");
      $hora = date("H:i:s");
+
+     
                     
 ?>
 
@@ -71,6 +73,7 @@ table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, 
 <br>
 
 <?php $cajas = CajaData::getAllAbierto(); 
+     
       if($cajas != null){ $id_caja=$cajas->id;
       }else{$id_caja=0;} 
 
@@ -96,6 +99,7 @@ if($id_caja!=0){
    
                 <!-- INGRESOS -->
                                               <?php $montos_sin_cerrar = ProcesoData::getIngresoCaja($id_caja);
+                                                     
                                                     $total_sin_cerrar=0;
                                                     if(count($montos_sin_cerrar)>0){
 
@@ -110,6 +114,7 @@ if($id_caja!=0){
                                               <?php  
                                               if($id_caja!=0){ 
                                               $reporproducts = ProcesoVentaData::getIngresoCaja($id_caja);
+                                             
                                               $subtotal3=0;
                                               if(count($reporproducts)>0){ ?>
                                                  <?php foreach($reporproducts as $reporproduct):?>
@@ -195,7 +200,7 @@ if($id_caja!=0){
                   <tr>
                       <td><h5><br>Egresos:</h5></td>
                       <td>
-                        <h5 class="control-label text-red"><br>$  <?php echo number_format($total_egreso,2,'.',','); ?></h5></td>
+                        <h5 class="control-label text-red"><br>$ -  <?php echo number_format($total_egreso,2,'.',','); ?></h5></td>
                   </tr>
                   <tr style="border-top: 2px solid #00a65a">
                       <td><h5><br>TOTAL:</h5></td>
@@ -218,9 +223,6 @@ if($id_caja!=0){
 
 
 
-
-
-
 <section>
 <div class="row">
 
@@ -236,6 +238,7 @@ if($id_caja!=0){
             <div class="tab-content">
               <div class="tab-pane active" id="tab_1">
                 <?php $reportediarios = ProcesoData::getIngresoCaja($id_caja);
+                 
                 if(count($reportediarios)>0){
                   // si hay usuarios
                   ?>
@@ -285,6 +288,7 @@ if($id_caja!=0){
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_2">
                 <?php $reporproducts = ProcesoVentaData::getIngresoCaja($id_caja);
+                
                 if(count($reporproducts)>0){
                   // si hay usuarios 
                   ?>
@@ -301,12 +305,18 @@ if($id_caja!=0){
                   </thead>
                    <?php $numero=0;?>
                    <?php $subtotal2=0;?>
+                   
                    <?php foreach($reporproducts as $reporproduct):?>
+                    
                    <?php $numero=$numero+1;?>
                    <?php if($reporproduct->fecha_creada!=NULL){ ?>
                       <tr>
                         <td><?php echo $numero; ?></td>
-                        <td><?php echo $reporproduct->getProceso()->getHabitacion()->nombre; ?></td>
+                        <?php if(isset($reporproduct->id_operacion)){ ?>
+                          <td><?php echo $reporproduct->getProceso()->getHabitacion()->nombre; ?></td>
+                        <?php }else{ ?>
+                          <td>sin habitacion</td>
+                        <?php }; ?>
                         <td><?php echo $reporproduct->getProducto()->nombre; ?></td>
                         <td><b><?php echo $reporproduct->cantidad; ?></b></td>
                         <td><b>$   <?php echo number_format($reporproduct->precio,2,'.',','); ?></b></td>
@@ -316,13 +326,17 @@ if($id_caja!=0){
                       </tr> 
                     <?php $subtotal2=$subtotal1+$subtotal2; ?>
                     <?php }; ?>
+                    
                     <?php endforeach; ?>
-
+                    
                     <tfoot style="color: black; background-color: #e3e4e6;">
                         <th colspan="5"><p class="pull-right">Total</p></th>
                         <th><b>$    <?php echo number_format($subtotal2,2,'.',','); ?></b> </th> 
+                       
                         <th></th>
                     </tfoot>
+
+                    
 
                   </table>
 
