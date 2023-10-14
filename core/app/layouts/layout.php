@@ -295,18 +295,20 @@
                                             </li>
                                             <?php endif;?>
 
-                                            <li>
-                                              <a  role="button" tabindex="0"><i class='fa fa-file-text-o'></i> <span>Reportes</span></a>
-                                              <ul >
+                                            <?php if($u->is_admin):?>
+                                                <li>
+                                                <a  role="button" tabindex="0"><i class='fa fa-file-text-o'></i> <span>Reportes</span></a>
+                                                <ul >
 
-                                                <li><a href="./?view=pre_reporte_rango"><i class="fa fa-caret-right"></i> Reporte detallado cliente</a></li>
+                                                    <li><a href="./?view=pre_reporte_rango"><i class="fa fa-caret-right"></i> Reporte detallado cliente</a></li>
 
-                                                <li><a href="./?view=reporte_diario"><i class="fa fa-caret-right"></i> Reporte diario</a></li>
-                                                <li><a href="./?view=reporte_user"><i class="fa fa-caret-right"></i> Reporte Recepcionista</a></li>
-                                                <li><a href="./?view=reporte_estado"><i class="fa fa-caret-right"></i> Reporte estado habitación</a></li>
+                                                    <li><a href="./?view=reporte_diario"><i class="fa fa-caret-right"></i> Reporte diario</a></li>
+                                                    <li><a href="./?view=reporte_user"><i class="fa fa-caret-right"></i> Reporte Recepcionista</a></li>
+                                                    <li><a href="./?view=reporte_estado"><i class="fa fa-caret-right"></i> Reporte estado habitación</a></li>
 
-                                              </ul>
-                                            </li> 
+                                                </ul>
+                                                </li> 
+                                            <?php endif;?>
 
                                              <li>
                                               <ul >
@@ -432,7 +434,7 @@
                         <?php }
                         ?>
 
-                                    <center><h1><b>SISTEMA HOTEL</b></h1><br><?php if($logo!=''){ ?><img width="50%" src="img/<?php echo $logo; ?>"><?php }; ?></center>
+                                    <center><h1><b>SISTEMA HOTEL</b></h1><br><?php if($logo!=''){ ?><img width="50%" src="assets/images/fondo.jfif"><?php }; ?></center>
 
 
                                 </div>

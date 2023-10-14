@@ -3,7 +3,7 @@
 
   $hoy = date("Y-m-d");
   $hora = date("H:i:s");
-  $doce = date("12:00:00");
+  $doce = date("09:00:00");
 
   $nuevafecha = strtotime('+1 day', strtotime($hoy));
   $nuevafecha = date('Y-m-j', $nuevafecha);

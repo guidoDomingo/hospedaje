@@ -244,7 +244,7 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"> Detalles &nbsp;&nbsp;</span>
-                      <input type="text" class="form-control" name="descripcion" value="<?php echo $habitacion->descripcion; ?>" required placeholder="Ingrese detalles">
+                      <input type="text" class="form-control" name="descripcion" value="<?php echo $habitacion->descripcion; ?>" placeholder="Ingrese detalles">
                     </div>
                   </div>
 
@@ -333,7 +333,7 @@
                   <div class="form-group">
                     <div class="input-group">
                       <span class="input-group-addon"> Detalles &nbsp;&nbsp;</span>
-                      <input type="text" class="form-control" name="descripcion" required placeholder="Ingrese detalles">
+                      <input type="text" class="form-control" name="descripcion"  placeholder="Ingrese detalles">
                     </div>
                   </div>
 
