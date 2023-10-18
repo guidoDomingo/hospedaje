@@ -115,4 +115,16 @@ function valida(e){
         $('.footable').footable();
 
     });
+
+    $(document).ready(function () {
+        // Inicializar Footable
+        $('#searchTextResults').footable();
+
+        // Escuchar cambios en el campo de filtro
+        $('#filter').on('input', function () {
+            var text = $(this).val();
+            $('#searchTextResults').data('footable').filter(text);
+        });
+    });
+    
 </script>

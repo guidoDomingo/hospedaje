@@ -425,8 +425,8 @@ $fecha1 = new DateTime($habitacion->fecha_entrada);//fecha inicial
 
                     <div class="box-footer clearfix">
 
-                        <a href="index.php?view=recepcion" class="btn btn-danger"><i class='fa fa-sign-out'></i>
-                            Cancelar</a>
+                        <!-- <a href="index.php?view=recepcion" class="btn btn-danger"><i class='fa fa-sign-out'></i>
+                            Cancelar</a> -->
 
                         <input type="hidden" name="id_operacion" value="<?php echo $habitacion->id; ?>">
                         <input type="hidden" name="fecha_salida" value="<?php echo $hoy.' '.$hora; ?>">
@@ -443,6 +443,14 @@ $fecha1 = new DateTime($habitacion->fecha_entrada);//fecha inicial
 
 
                     </div>
+                    </form>
+
+                    <form id="habilitarhabitacion-form" action="index.php?view=habilitarhabitacion" method="post">
+                        <input type="hidden" name="id_habitacion"
+                            value="<?php echo $habitacion->getHabitacion()->id; ?>">
+                        <input type="hidden" name="id_operacion" value="<?php echo $habitacion->id; ?>">
+                        <button type="submit" class="btn btn-danger" form="habilitarhabitacion-form"><i
+                                class='fa fa-sign-out'></i> Cancelar</button>
                     </form>
 
                 </div>
