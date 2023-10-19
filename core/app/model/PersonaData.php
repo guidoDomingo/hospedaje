@@ -21,8 +21,8 @@ class PersonaData
 
 	public function addCliente()
 	{
-		$sql = "insert into persona (tipo_documento,documento,giro,nombre,fecha_nac,direccion,tipo,fecha_creada) ";
-		$sql .= "value ($this->tipo_documento,\"$this->documento\",\"$this->giro\",\"$this->nombre\",\"$this->fecha_nac\",\"$this->direccion\",1,$this->fecha_creada)";
+		$sql = "insert into persona (tipo_documento,documento,telefono,nombre,fecha_nac,direccion,tipo,fecha_creada) ";
+		$sql .= "value ($this->tipo_documento,\"$this->documento\",\"$this->telefono\",\"$this->nombre\",\"$this->fecha_nac\",\"$this->direccion\",1,$this->fecha_creada)";
 		return Executor::doit($sql);
 	}
 

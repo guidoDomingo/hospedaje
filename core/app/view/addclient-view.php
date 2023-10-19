@@ -10,8 +10,8 @@ if(count($_POST)>0){
 	$razon_social="NULL";
   if($_POST["razon_social"]!=""){ $razon_social=$_POST["razon_social"];}
 
-  $giro="NULL";
-  if($_POST["giro"]!=""){ $giro=$_POST["giro"];}
+  $telefono="NULL";
+  if($_POST["telefono"]!=""){ $telefono=$_POST["telefono"];}
 
   $direccion="NULL";
   if($_POST["direccion"]!=""){ $direccion=$_POST["direccion"];}
@@ -22,7 +22,7 @@ if(count($_POST)>0){
 
 
 	$cliente->razon_social = $razon_social;
-	$cliente->giro = $giro;
+	$cliente->telefono = $telefono;
 	$cliente->direccion = $direccion;
 	$cliente->fecha_nac = $fecha_nac;
  
@@ -32,6 +32,3 @@ print "<script>window.location='index.php?view=cliente';</script>";
 
 
 }
-
-
-?>
