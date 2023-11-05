@@ -17,6 +17,20 @@
             <section class="tile">
                 <div class="tile-header dvd dvd-btm">
                     <h1 class="custom-font"><strong>DIRECTORIO DEL</strong> CLIENTE</h1>
+                    <?php  
+
+                        //session_start(); // Inicia la sesión si no está iniciada.
+
+                        if (isset($_SESSION['error_message'])) {
+                            $error_message = $_SESSION['error_message'];
+                            // Borra el mensaje de error de la sesión para que no se muestre nuevamente.
+                            unset($_SESSION['error_message']);
+                            
+                            // Ahora puedes mostrar el mensaje de error en la página.
+                            echo '<p class="error" style="color:red;">' . $error_message . '</p>';
+                        }
+
+                    ?>
                     <ul class="controls">
                         <li class="remove">
                             <a data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus"></i> NUEVO
