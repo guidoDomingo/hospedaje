@@ -20,6 +20,11 @@
           <!-- Custom Tabs (Pulled to the right) -->
 
           <div class="nav-tabs-custom">
+            <div style="margin-bottom: 8px; text-align:center;font-size:30px;">
+           
+              <?php  $total = GastoData::gastoTotal();  ?>
+              <span class="badge badge-secondary"> El Egreso total es: <strong style="color: green;font-size:30px"><?php echo $total->total; ?></strong></span>
+            </div>
             <ul class="nav nav-tabs" style="background-color: #d2d6de;">
               <li class="active"><a href="#tab_1" data-toggle="tab">Lista de egresos</a></li>
               <li><a href="#tab_2" data-toggle="tab">Egresos anulados</a></li>

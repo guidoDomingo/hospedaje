@@ -106,9 +106,15 @@ class GastoData {
 	}
 
 	public static function getFiltroFechasAnulado($start,$end){
- $sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and estado=2   order by Fecha_creacion desc";
+ 		$sql = "select * from ".self::$tablename." where date(fecha) >= \"$start\" and date(fecha) <= \"$end\" and estado=2   order by Fecha_creacion desc";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new GastoData());
+	}
+
+	public static function gastoTotal(){
+ 		$sql = "select sum(precio) as total from ".self::$tablename." where estado=1";
+		$query = Executor::doit($sql);
+		return Model::one($query[0],new GastoData());
 	}
 
 
