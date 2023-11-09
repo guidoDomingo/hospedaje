@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Asuncion'); // Establecer la zona horaria a Nueva York
 
 class Crontab {
 
@@ -21,22 +22,26 @@ class Crontab {
     // Consulta SQL para obtener la fecha_salida de tu tabla (ajusta el nombre de la tabla y la columna según tus necesidades)
     $sql = "select * from proceso p where DATE(p.fecha_salida) = CURRENT_DATE and p.estado = 0";
     $result = $conn->query($sql);
-
+   
     if ($result->num_rows > 0) {
 
         while ($row = $result->fetch_assoc()) {
 
-            $fecha_salida = strtotime($row["fecha_salida"]);
+            $fecha_salida = $row["fecha_salida"];
 
-            $fecha_actual = time();
+            $fecha_actual = date("Y-m-d H:i:s");
+
+            $marca_tiempo_bd = strtotime($fecha_salida);
+            $marca_tiempo_actual = strtotime($fecha_actual);
+
 
             $cant_noche = $row["cant_noche"] + 1;
 
             $id_proceso = $row["id"];
 
-            if ($fecha_actual > $fecha_salida) {
+            if ($marca_tiempo_actual > $marca_tiempo_bd) {
 
-                $mensaje = "La fecha actual es mayor que la fecha de salida." . PHP_EOL;
+                $mensaje = "La fecha actual es mayor que la fecha de salida.". $fecha_salida . PHP_EOL;
                 error_log($mensaje, 3, 'C:\xampp_dos\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
 
                 $fecha_salida = strtotime("+1 day", $fecha_salida);
