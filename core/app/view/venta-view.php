@@ -299,11 +299,11 @@ $fecha_completo = date("Y-m-d H:i:s");
       url: "./?action=agregar_tmp",
       data: parametros,
       beforeSend: function(objeto) {
-        $("#resultados").html("Mensaje: Cargando...");
+        $("#resultados").html("");
       },
       success: function(datos) {
 
-        $("#resultados").html(datos);
+        $("#resultados").append(datos);
 
       }
     });

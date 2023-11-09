@@ -42,15 +42,15 @@ class Crontab {
             if ($marca_tiempo_actual > $marca_tiempo_bd) {
 
                 $mensaje = "La fecha actual es mayor que la fecha de salida.". $fecha_salida . PHP_EOL;
-                error_log($mensaje, 3, 'C:\xampp_dos\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
+                error_log($mensaje, 3, 'C:\xampp\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
 
                 $fecha_salida = strtotime("+1 day", $fecha_salida);
 
                 // Convierte la nueva fecha de salida de nuevo al formato deseado (por ejemplo, Y-m-d)
                 $nueva_fecha_salida = date("Y-m-d 09:00:00", $fecha_salida);
 
-                error_log("la nueva fecha es: ". $nueva_fecha_salida . PHP_EOL, 3, 'C:\xampp_dos\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
-                error_log("la nueva cantidad noche es: ". $cant_noche . PHP_EOL, 3, 'C:\xampp_dos\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
+                error_log("la nueva fecha es: ". $nueva_fecha_salida . PHP_EOL, 3, 'C:\xampp\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
+                error_log("la nueva cantidad noche es: ". $cant_noche . PHP_EOL, 3, 'C:\xampp\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
 
                 $updateSQL = "UPDATE proceso SET cant_noche = ?, fecha_salida = ? WHERE id = ?";
 
@@ -62,22 +62,22 @@ class Crontab {
 
                     // Ejecuta la sentencia preparada
                     if ($stmt->execute()) {
-                        error_log("Se actualizo correctamente: " . PHP_EOL, 3, 'C:\xampp_dos\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
+                        error_log("Se actualizo correctamente: " . PHP_EOL, 3, 'C:\xampp\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
                     } else {
-                        error_log("No se pudo actualizar la tabla proceso: " . PHP_EOL, 3, 'C:\xampp_dos\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
+                        error_log("No se pudo actualizar la tabla proceso: " . PHP_EOL, 3, 'C:\xampp\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
                     }
 
                 } else {
-                    error_log("Error en la preparación de la consulta: " . PHP_EOL, 3, 'C:\xampp_dos\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
+                    error_log("Error en la preparación de la consulta: " . PHP_EOL, 3, 'C:\xampp\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
 
                 }
 
             } else {
-                error_log("La fecha actual es menor o igual que la fecha de salida." . PHP_EOL, 3, 'C:\xampp_dos\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
+                error_log("La fecha actual es menor o igual que la fecha de salida." . PHP_EOL, 3, 'C:\xampp\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
             }
         }
     } else {
-        error_log("No se encontraron registros en la tabla." . PHP_EOL, 3, 'C:\xampp_dos\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
+        error_log("No se encontraron registros en la tabla." . PHP_EOL, 3, 'C:\xampp\htdocs\hospedaje\logs\mi_aplicacion.log.txt');
     }
 
     // Cierra la conexión a la base de datos
