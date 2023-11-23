@@ -2,22 +2,16 @@
 
 $session_id= session_id(); 
 
+
 if (isset($_POST['id'])){$id=$_POST['id'];}
 if (isset($_POST['cantidad'])){$cantidad=$_POST['cantidad'];}
 if (isset($_POST['precio_venta'])){$precio_venta=$_POST['precio_venta'];}
 
 
 if(isset($_POST['cantidad']) and isset($_POST['precio_venta'])){
-$producto= TmpData::getByIdProducto($_POST['id']);
+    $producto= TmpData::getByIdProducto($_POST['id']);
 
-if(($producto)){
- 
-    $temporal = TmpData::getById($producto->id_tmp);
-    $temporal->cantidad_tmp = $producto->cantidad_tmp+$_POST['cantidad'];
-    $temporal->updateCantidad();
 
-}
-else{  
     $temporal = new TmpData();
     $temporal->id_producto = $_POST['id']; 
     $temporal->cantidad_tmp = $_POST['cantidad'];
@@ -25,7 +19,7 @@ else{
     $temporal->sessionn_id = $session_id;
     $temporal->tipo_operacion = 1;
     $temporal->addTmp();  
-}
+
 }
 
 
@@ -39,7 +33,7 @@ if (isset($_GET['id']))//codigo elimina un elemento del array
 
 
 		$tmps = TmpData::getAllTemporal($session_id);
-		
+		//return var_dump($tmps);
 			// si hay usuarios
 			?>
         <?php

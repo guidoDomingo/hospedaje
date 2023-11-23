@@ -39,7 +39,7 @@ class TmpData {
 
 
  	public function updateCantidad(){
-		$sql = "update ".self::$tablename." set cantidad_tmp=\"$this->cantidad_tmp\" where id_tmp=$this->id_tmp";
+		$sql = "update ".self::$tablename." set cantidad_tmp=\"$this->cantidad_tmp\", sessionn_id=\"$this->sessionn_id\" where id_tmp=$this->id_tmp";
 		Executor::doit($sql);
 	}
  
