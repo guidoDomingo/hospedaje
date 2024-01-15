@@ -27,7 +27,7 @@ class Crontab
             }
 
             // Consulta SQL para obtener la fecha_salida de tu tabla (ajusta el nombre de la tabla y la columna según tus necesidades)
-            $sql = "select * from proceso p where DATE(p.fecha_salida) = CURRENT_DATE and p.estado = 0";
+            $sql = "select * from proceso p where p.estado = 0";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
